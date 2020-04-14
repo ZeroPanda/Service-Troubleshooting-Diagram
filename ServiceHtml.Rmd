@@ -1,0 +1,48 @@
+---
+title: "ClimateWorx International"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    theme: united
+#themes here, flexdashboard, bootstrap, cerulean, cosmo, flatly, journal, lumen, paper, readable, sandstone, simplex, spacelab, united, yeti
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(readxl)
+library(collapsibleTree) 
+library(readr)
+library(tidyverse)
+
+#url <- "https://github.com/ZeroPanda/Toronto-KSI/blob/master/service.csv"
+#service <- read_csv(url)
+service <- read_excel("*C:\Users\Amit R. Amin\Downloads\service.xlsx")
+```
+Row
+-----------------------------------------------------------------------
+
+### Service Toubleshooting Diagram 
+
+```{r}
+collapsibleTree(service, c("issue","root1","root2","root3","root4","root5","root6","root7","root8","root9","root10","root11","root12","root13","root14","root15", "root16","root17","root18","root19","root20"),
+                fontSize = 10,collapsed = TRUE,linkLength = 250, root = "Issue type",   fill = "skyblue", fillByLevel = TRUE, tooltip = TRUE)
+```
+
+row
+----------------------------------------------------------------------
+###  ClimateWorxInternational.com
+
+```{r,fig.width=1, fig.height=5}
+valueBox("Website", icon = "fa-globe", href="https://www.climateworxinternational.com/")
+```
+
+### ClimateWorx Email
+```{r,fig.width=1, fig.height=5}
+valueBox("Email", icon = "fa-envelope", href="mailto:info@climateworxinternational.com?Subject=Directed%20from%20the%20app:")
+```
+
+### +1-905-405-0800
+```{r,fig.width=1, fig.height=5}
+valueBox("Call us", icon = "fa-phone-square")
+```
