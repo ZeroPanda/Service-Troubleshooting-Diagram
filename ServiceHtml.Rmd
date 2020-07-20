@@ -5,6 +5,7 @@ output:
     orientation: rows
     vertical_layout: fill
     theme: united
+    source_code: "https://github.com/ZeroPanda/Service-Troubleshooting-Diagram"
 #themes here, flexdashboard, bootstrap, cerulean, cosmo, flatly, journal, lumen, paper, readable, sandstone, simplex, spacelab, united, yeti
 ---
 
@@ -15,9 +16,7 @@ library(collapsibleTree)
 library(readr)
 library(tidyverse)
 
-#url <- "https://github.com/ZeroPanda/Toronto-KSI/blob/master/service.csv"
-#service <- read_csv(url)
-service <- read_excel("*C:\Users\Amit R. Amin\Downloads\service.xlsx")
+service <- read_csv("https://raw.githubusercontent.com/ZeroPanda/Service-Troubleshooting-Diagram/master/service.csv")
 ```
 Row
 -----------------------------------------------------------------------
@@ -25,7 +24,7 @@ Row
 ### Service Toubleshooting Diagram 
 
 ```{r}
-collapsibleTree(service, c("issue","root1","root2","root3","root4","root5","root6","root7","root8","root9","root10","root11","root12","root13","root14","root15", "root16","root17","root18","root19","root20"),
+collapsibleTree(service, colnames(service),
                 fontSize = 10,collapsed = TRUE,linkLength = 250, root = "Issue type",   fill = "skyblue", fillByLevel = TRUE, tooltip = TRUE)
 ```
 
